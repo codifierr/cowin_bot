@@ -102,7 +102,7 @@ func (v VaccineSlotLocator) executeLocator(pincode string) {
 	}
 	for _, center := range result.Centers {
 		for _, session := range center.Sessions {
-			if session.MinAgeLimit <= v.minAgeLimit && session.AvailableCapacity >= v.minAvailableCapacity && session.AvailableCapacityDose1 >= v.availableCapacityDose1 && session.AvailableCapacityDose2 >= v.availableCapacityDose2 {
+			if session.MinAgeLimit <= v.minAgeLimit && session.AvailableCapacity >= v.minAvailableCapacity && (session.AvailableCapacityDose1 >= v.availableCapacityDose1 || session.AvailableCapacityDose2 >= v.availableCapacityDose2) {
 				m := LocatorResult{
 					CenterName:             center.Name,
 					Pincode:                center.Pincode,
