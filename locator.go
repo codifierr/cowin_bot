@@ -59,7 +59,7 @@ func main() {
 	go func() {
 		for {
 			r := <-locator.ResultChan
-			m, err := producer.SendMessage(fmt.Sprintf("%s,%d,%s,%d,%s,%d,%d,%d", url.QueryEscape(r.CenterName), r.Pincode, r.Date, r.MinAgeLimit, r.Vaccine, r.AvailableCapacity, r.AvailableCapacityDose1, r.AvailableCapacityDose2))
+			m, err := producer.SendMessage(fmt.Sprintf("CenterName : %s,Pincode : %d,Date : %s,MinAgeLimit : %d,Vaccine : %s,AvailableCapacity : %d,AvailableCapacityDose1 : %d,AvailableCapacityDose2 : %d", url.QueryEscape(r.CenterName), r.Pincode, r.Date, r.MinAgeLimit, r.Vaccine, r.AvailableCapacity, r.AvailableCapacityDose1, r.AvailableCapacityDose2))
 			log.Println(m, err)
 		}
 	}()
