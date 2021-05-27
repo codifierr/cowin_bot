@@ -121,7 +121,6 @@ func (v VaccineSlotLocator) executeLocator(pincode string) {
 
 func (v VaccineSlotLocator) getVacSlotResultFromCowin(pincode string) (CowinVacSearchResult, error) {
 	url := fmt.Sprintf("%s?pincode=%s&date=%s", v.endpoint, pincode, v.date)
-	// log.Println("url : ", url)
 	method := "GET"
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, nil)
@@ -133,6 +132,10 @@ func (v VaccineSlotLocator) getVacSlotResultFromCowin(pincode string) (CowinVacS
 	res, err := client.Do(req)
 	if err != nil {
 		return result, err
+	}
+	if res.StatusCode != http.StatusOK {
+		log.Println("Status not ok ", res.StatusCode)
+		return result, fmt.Errorf("status not ok")
 	}
 	defer res.Body.Close()
 
