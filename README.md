@@ -1,7 +1,11 @@
 # Cowin_bot
 
 Bot to lookup availability of vaccination slots in centers based on provided pincodes. if available then send message on telegram channel.
-Follow this document for creating a telegram bot https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-telegram?view=azure-bot-service-4.0
+Follow this document for creating a telegram bot https://core.telegram.org/bots#6-botfather
+Once you have bot token send a message to the bot from your telegram app and call below API to find the chat id which will be used by below app to send messages.
+ `https://api.telegram.org/bot<YourBOTToken>/getUpdates`
+  
+More information available on this page https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
 
 # Usage
 
