@@ -1,4 +1,4 @@
-module gitlab.com/codifierr/cowin_bot/v1
+module github.com/codifierr/cowin_bot/v1
 
 go 1.16
 
