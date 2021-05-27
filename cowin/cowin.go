@@ -89,7 +89,7 @@ func (v VaccineSlotLocator) Locate(interval int) {
 			for _, pincode := range v.pincodes {
 				go v.executeLocator(pincode)
 			}
-			log.Printf("Next Vaccination locating in %d Seconds", interval)
+			log.Printf("Locating Vaccination slots in %d Seconds", interval)
 			time.Sleep(time.Duration(interval) * time.Second)
 		}
 	}
