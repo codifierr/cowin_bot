@@ -1,6 +1,7 @@
 # Cowin_bot
 
-Bot to lookup availability of slots. if available then send message on telegram channel
+Bot to lookup availability of vaccination slots in centers based on provided pincodes. if available then send message on telegram channel.
+Follow this document for creating a telegram bot https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-telegram?view=azure-bot-service-4.0
 
 # Usage
 
