@@ -42,7 +42,7 @@ func NewProducer(chat_id, token string) *Producer {
 
 func (p Producer) SendMessage(message string) (MessageResult, error) {
 	reqURL := fmt.Sprintf("%s%s/sendMessage?chat_id=%s&text=%s", p.endpoint, p.token, p.chat_id, message)
-	log.Println("reqURL:", reqURL)
+	// log.Println("reqURL:", reqURL)
 	client := &http.Client{}
 	var result MessageResult
 	req, err := http.NewRequest("GET", reqURL, nil)
