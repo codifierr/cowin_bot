@@ -19,6 +19,7 @@ func main() {
 		pinCodes               string
 		telToken               string
 		chatId                 string
+		errChatId              string
 		interval               int
 		minAgeLimit            int
 		minAvailableCapacity   int
@@ -28,6 +29,7 @@ func main() {
 	flag.StringVar(&pinCodes, "pincodes", "", "")
 	flag.StringVar(&telToken, "tel_token", "", "")
 	flag.StringVar(&chatId, "chat_id", "", "")
+	flag.StringVar(&errChatId, "err_chat_id", "", "")
 	flag.IntVar(&interval, "interval", 15, "")
 	flag.IntVar(&minAgeLimit, "min_age_limit", 18, "")
 	flag.IntVar(&minAvailableCapacity, "min_available_capacity", 4, "")
@@ -63,6 +65,18 @@ func main() {
 			log.Println(m, err)
 		}
 	}()
+	if errChatId != "" {
+		//Report on error chat_id
+		producer := telegram.NewProducer(errChatId, telToken)
+		go func() {
+			for {
+				r := <-locator.ErrorChan
+				m, err := producer.SendMessage(fmt.Sprintf("Error : %s", url.QueryEscape(r.Error())))
+				log.Println(m, err)
+			}
+		}()
+	}
+
 	signalChan := make(chan os.Signal, 1)
 
 	signal.Notify(signalChan, os.Interrupt)

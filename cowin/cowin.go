@@ -20,6 +20,7 @@ type VaccineSlotLocator struct {
 	availableCapacityDose1 int
 	availableCapacityDose2 int
 	ResultChan             chan LocatorResult
+	ErrorChan              chan error
 }
 
 type LocatorResult struct {
@@ -98,6 +99,7 @@ func (v VaccineSlotLocator) Locate(interval int) {
 func (v VaccineSlotLocator) executeLocator(pincode string) {
 	result, err := v.getVacSlotResultFromCowin(pincode)
 	if err != nil {
+		v.ErrorChan <- err
 		log.Println("Error : ", err.Error())
 	}
 	for _, center := range result.Centers {
@@ -134,8 +136,7 @@ func (v VaccineSlotLocator) getVacSlotResultFromCowin(pincode string) (CowinVacS
 		return result, err
 	}
 	if res.StatusCode != http.StatusOK {
-		log.Println("Status not ok ", res.StatusCode)
-		return result, fmt.Errorf("status not ok")
+		return result, fmt.Errorf("status not ok, status_code %d", res.StatusCode)
 	}
 	defer res.Body.Close()
 
