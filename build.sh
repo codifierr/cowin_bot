@@ -1,1 +1,1 @@
-go build -o mac_locator locator.go
+go build -o locator locator.go
