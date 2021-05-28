@@ -11,5 +11,5 @@ More information available on this page https://stackoverflow.com/questions/3242
 
 Run the binary(mac os binary) which below command arg. create a telegram bot using botfather and provide chat_id and telegram bot token
 ```
-./mac_locator -tel_token "" -chat_id "" -pincodes "" -min_age_limit "45" -min_available_capacity "4" -min_available_capacity_dose1 "4" -min_available_capacity_dose2 "0"
+./cowin_bot -tel_token "" -chat_id "" -pincodes "" -min_age_limit "45" -min_available_capacity "4" -min_available_capacity_dose1 "4" -min_available_capacity_dose2 "0"
 ```
