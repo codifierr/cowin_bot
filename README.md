@@ -7,6 +7,8 @@ Once you have bot token send a message to the bot from your telegram app and cal
   
 More information available on this page https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
 
+Download appropriate release version from release page
+
 # Usage
 
 Run the binary(mac os binary) which below command arg. create a telegram bot using botfather and provide chat_id and telegram bot token
