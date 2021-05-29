@@ -1,1 +1,1 @@
-go build -o locator locator.go
+go build -o cowin_bot locator.go
