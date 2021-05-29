@@ -67,7 +67,7 @@ type CowinVacSearchResult struct {
 
 func NewVacSlotLocator(ctx context.Context, date string, pincodes []string, minAgeLimit, minAvailableCapacity, availableCapacityDose1, availableCapacityDose2 int) *VaccineSlotLocator {
 	resultChan := make(chan LocatorResult)
-	endpoint := "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin"
+	endpoint := "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin"
 	return &VaccineSlotLocator{
 		endpoint:               endpoint,
 		pincodes:               pincodes,
