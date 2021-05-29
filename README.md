@@ -8,6 +8,7 @@ Once you have bot token send a message to the bot from your telegram app and cal
 More information available on this page https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
 
 Download appropriate release version from release page
+https://github.com/codifierr/cowin_bot/releases
 
 # Usage
 
