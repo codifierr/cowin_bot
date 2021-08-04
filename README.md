@@ -1,4 +1,4 @@
-# Cowin_bot
+# Cowin Telegram bot
 
 Bot to lookup availability of vaccination slots in centers based on provided pincodes. if available then send message on telegram channel.
 Follow this document for creating a telegram bot https://core.telegram.org/bots#6-botfather
